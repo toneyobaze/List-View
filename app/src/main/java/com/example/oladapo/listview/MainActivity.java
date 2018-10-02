@@ -2,11 +2,11 @@ package com.example.oladapo.listview;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -19,16 +19,17 @@ public class MainActivity extends AppCompatActivity {
 
         ListView myListView = findViewById(R.id.myListView);
 
-        final ArrayList<String> myFamily = new ArrayList<String>();
+        final ArrayList<String> myFriends = new ArrayList<>();
 
-        myFamily.add("Alexander");
-        myFamily.add("Camilla");
-        myFamily.add("Anthony");
-        myFamily.add("Rita");
-        myFamily.add("Frances");
-        myFamily.add("Esther");
+        myFriends.add("Evans");
+        myFriends.add("Jay");
+        myFriends.add("Nick");
+        myFriends.add("Theo");
+        myFriends.add("Yemo");
+        myFriends.add("Ellworth");
+        myFriends.add("Adotey");
 
-        ArrayAdapter<String> arrayAdapter =new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, myFamily);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, myFriends);
 
         myListView.setAdapter(arrayAdapter);
 
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Log.i("Person tapped:", myFamily.get(position));
+                Toast.makeText(getApplicationContext(), "Hello " + myFriends.get(position), Toast.LENGTH_LONG).show();
 
             }
         });
